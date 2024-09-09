@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Temperature Check</h1>
+    <input type="number" placeholder="Temperature" id="tempr">
+    <button onclick="temp()">click here</button>
+</body>
+</html>
+
+<script>
+   
+    let Temperature = 0;
+    function temp(){
+        Temperature = document.getElementById("tempr").value
+
+        if(Temperature >= 0 && Temperature <=0){
+            console.log('freezing cold')
+            alert("freezing cold")
+        }
+
+        else if(Temperature >= 10 && Temperature <=10){
+            console.log('chilly')
+            alert("chilly")
+        }
+
+        else if(Temperature >=20){
+            console.log('cool')
+            alert("cool")
+        }
+
+        else if(Temperature >=30){
+            console.log('warm')
+            alert("warm")
+        }
+    }
+
+</script>

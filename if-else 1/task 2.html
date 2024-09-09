@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Grading System</h1>
+    <input type="number" placeholder="marks" id="mrk">
+    <button onclick="marks()">Check</button>
+</body>
+</html>
+<script>
+    function marks()
+    {
+        var marks = document.getElementById('mrk').value
+
+    if (marks >= 90 && marks <= 100) {
+        console.log('A')
+        alert("A");
+    }
+     else if (marks >= 80 && marks < 90) {
+        console.log('B')
+        alert("B");
+    }
+     else if (marks >= 70 && marks < 80) {
+        console.log('C')
+        alert("C");
+    } 
+    else if (marks >= 60 && marks < 70) {
+        console.log('D')
+        alert("D");
+    }
+     else if (marks < 60) {
+        console.log('F')
+        alert("F");
+    } 
+    else {
+        return "Invalid score";
+    }
+    }
+</script>

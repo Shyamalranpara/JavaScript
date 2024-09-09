@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Speed Calculation</title>
+</head>
+<body>
+    <h2>Speed Calculator</h2>
+    <p>Enter the distance traveled (in meters) and the time taken (in seconds):</p>
+
+    <label for="distance">Distance (meters):</label>
+
+    <input type="number" id="distance" placeholder="Enter distance in meters">
+    <br><br>
+    <label for="time">Time (seconds):</label>
+
+    <input type="number" id="time" placeholder="Enter time in seconds">
+    <br><br>
+    <button onclick="calculateSpeed()">Calculate Speed</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function calculateSpeed() {
+            // Get the distance and time from the input fields
+            var distance = document.getElementById('distance').value;
+            var time = document.getElementById('time').value;
+
+            // Validate input
+            if(distance <= 0 || time <= 0) {
+                document.getElementById('result').innerText = "Please enter positive values for distance and time.";
+                return;
+            }
+
+            // Calculate the speed
+            var speed = distance / time;
+
+            // Display the result
+            document.getElementById('result').innerText = "The speed is " + speed.toFixed(2) + " meters per second (m/s).";
+        }
+    </script>
+</body>
+</html>

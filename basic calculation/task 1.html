@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shopping Cart</title>
+</head>
+<body>
+
+    <h2>Shopping Cart</h2>
+    <label for="quantity">Enter quantity:</label>
+    <input type="number" id="quantity" value="1" min="1">
+    <p>Price per product: $<span id="price">25</span></p>
+    <button onclick="calculateTotal()">Calculate Total</button>
+
+    <h3>Total Cost: $<span id="totalCost">0</span></h3>
+
+    <script>
+        function calculateTotal() {
+            var price = 25; 
+            var quantity = document.getElementById("quantity").value;
+            var totalCost = price * quantity;
+
+            document.getElementById("totalCost").innerText = totalCost; 
+        }
+    </script>
+
+</body>
+</html>
