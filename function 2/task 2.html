@@ -18,11 +18,6 @@ function getUserInput() {
     const length = parseFloat(prompt("Enter the length of the rectangle:"));
     const width = parseFloat(prompt("Enter the width of the rectangle:"));
 
-    if (isNaN(length) || isNaN(width)) {
-        console.log("Please enter valid numbers for length and width.");
-        return;
-    }
-
     const area = calculateArea(length, width);
     console.log(`The area of the rectangle is: ${area}`);
 }
