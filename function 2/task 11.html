@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+</body>
+</html>
+<script>
+function double(func) {
+  return function(x) {
+    return 2 * func(x);
+  };
+}
+
+function square(x) {
+  return x * x;
+}
+
+const doubleSquare = double(square);
+
+console.log(doubleSquare(2)); 
+</script>
