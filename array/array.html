@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center><h1>looping in array</h1></center>
+</body>
+</html>
+<script>
+
+    // Q=1 sum of all elements in matrix
+    let arr=[
+        [9,8,7],
+        [7,6,5],
+        [5,4,3],
+]
+
+let sum=0;
+for(let i=0;i<arr.length;i++){
+    for(let j=0;j<arr[i].length;j++){
+
+           sum+=arr[i][j]
+    
+    }
+}
+console.log(sum)
+
+
+// Q=2 sum of even index elements
+let arr2=[
+        [9,8,7],
+        [7,6,5],
+        [5,4,3],
+]
+
+let sum1=0;
+for(let i=0;i<arr2.length;i++){
+    for(let j=0;j<arr2[i].length;j++){
+
+          if([i]%2==0){
+            sum1+=arr[i][j]
+          }
+    
+    }
+}
+console.log(sum1)
+
+// Q=3 Find sum of odd index elements in matrix
+let arr3 = [
+    [9, 8, 7],
+    [7, 6, 5],
+    [5, 4, 3],
+];
+
+let sum2 = 0;
+for (let i = 0; i < arr3.length; i++) {
+    for (let j = 0; j < arr3[i].length; j++) {
+        if ([j] % 2 !== 0) {  
+            sum2 += arr3[i][j];  
+        }
+    }
+}
+console.log(sum2);  
+
+
+// Q = 4 Find sum of left elements in matrix
+
+let arr4=[
+    [1,2,3],
+    [6,7,8],
+    [7,8,9],
+]
+let sum4=0;
+for(let i=0;i<arr4.length;i++){
+
+    for(let j=0;j<arr4[i].length;j++){
+        if(i==j){
+            sum4+=arr4[i][j]
+        }
+    }
+}
+console.log(sum4)
+
+// Q = 5 Find sum of right elements in matrix
+
+let arr5=[
+    [1,2,3],
+    [6,7,8],
+    [7,8,9],
+]
+let sum5=0;
+for(let i=0;i<arr5.length;i++){
+
+    for(let j=0;j<arr5[i].length;j++){
+        if(i==j){
+            sum5+=arr5[i][j]
+        }
+        if([i][j]==arr5.length){
+            sum5+=arr5[i][j]
+        }
+    }
+}
+console.log(sum5)
+
+
+// Question 6
+let arr6=[
+    [1,2,3],
+    [6,7,8],
+    [7,8,9],
+]
+let sum6=0;
+for(let i=0;i<arr6.length;i++){
+
+    for(let j=0;j<arr6[i].length;j++){
+        if(i==j){
+            sum6+=arr6[i][j]
+        }
+
+        if(i+j==arr6.length-1 && i!=j){
+            sum6+=arr6[i][j]
+        }
+    }
+}
+console.log(sum6)
+
+
+
+</script>
