@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" placeholder="enter the number" id="odd">
+    <button onclick="odd()">check</button>
+</body>
+</html>
+<script>
+  
+function odd(){
+   let n= document.getElementById("odd").value
+    if(n % 2 != 0){
+       console.log("odd")
+    }
+    else{
+        console.log("even num")
+    }
+}
+
+</script>

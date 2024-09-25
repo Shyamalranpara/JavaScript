@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function calculateArea(length, width) {
+    return length * width;
+}
+
+function getUserInput() {
+    const length = parseFloat(prompt("Enter the length of the rectangle:"));
+    const width = parseFloat(prompt("Enter the width of the rectangle:"));
+
+    const area = calculateArea(length, width);
+    console.log(`The area of the rectangle is: ${area}`);
+}
+
+
+getUserInput();
+
+</script>
