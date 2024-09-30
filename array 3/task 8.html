@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//    let name="hello"
+//     let result=name.toUpperCase()
+//     console.log(result)
+
+// let name1="world"
+// let r=name1.toUpperCase()
+// console.log(r)
+
+function processArray(arr) {
+    return arr
+        .filter(str => str.length >= 5)
+        .map(str => str.toUpperCase());
+}
+
+const strings = ["hello", "world", "JavaScript", "is", "great"];
+const result = processArray(strings);
+console.log(result); 
+
+</script>
