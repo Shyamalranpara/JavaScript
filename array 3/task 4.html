@@ -12,6 +12,20 @@
 <script>
     let even=[1,2,3,4,5,6,7,8,9];
     let sum=0;
+<<<<<<< HEAD
+=======
+
+    even=even.filter(function(el,i){
+       return el % 2==0 
+    })
+    console.log(even)
+
+    sum=even.reduce(function(acc,curr){
+        return acc+curr
+    },0)
+    console.log(sum)
+</script>
+>>>>>>> 9ea20291c3ccf47ca304a8bb82a459a756ee49f8
 
     even=even.filter(function(el,i){
        return el % 2==0 
