@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+    @import url("https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css");
+    
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    
+    body {
+      font-family: "Open Sans", sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    .slider-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    .left-slide {
+      height: 100%;
+      width: 35%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.5s ease-in-out;
+    }
+    
+    .left-slide > div {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #fff;
+    }
+    
+    .left-slide h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+      margin-top: -30px;
+    }
+    .right-slide {
+      height: 100% !important;
+      position: absolute !important;
+      left: 35% !important;
+      width: 65% !important;
+      transition: transform 0.5s ease-in-out;
+    }
+    
+    .right-slide > div {
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+      background-position: center center !important;
+      height: 100%;
+      width: 100%;
+    }
+    
+    button {
+      border: none;
+      background-color: #fff;
+      color: #aaa;
+      cursor: pointer;
+      font-size: 16px;
+      width: 40px !important;
+      height: 40px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .slider-container .action-buttons button {
+      position: absolute;
+      left: 35%;
+      top: 50%;
+      z-index: 100;
+    }
+    
+    .slider-container .action-buttons .down-button {
+      transform: translateX(-100%);
+      border-radius: 4px 0 0 4px;
+    }
+    
+    .slider-container .action-buttons .up-button {
+      transform: translateY(-100%);
+      border-radius: 0 4px 4px 0;
+    }
+    
+    .down-button:hover,
+    .up-button:hover {
+      background-color: #f0f0f0;
+    }
+    </style>
+<body>
+    <div class="slider-container">
+        <div class="left-slide">
+          <div style="background-color: #7f7856;">
+            <h1>Nature Flower</h1>
+            <p>All in pink</p>
+          </div>
+          <div style="background-color: #6d6b9f;">
+            <h1>Nature Flower</h1>
+            <p>All in pink</p>
+          </div>
+          <div style="background-color: #252e33;">
+            <h1>Nature Flower</h1>
+            <p>All in pink</p>
+          </div>
+          <div style="background-color: #739c10;">
+            <h1>Nature Garden</h1>
+            <p>All in Green</p>
+          </div>
+        </div>
+        <div class="right-slide">
+          <div style="background: url('https://plus.unsplash.com/premium_photo-1661963972388-1da70b60752b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdpZGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60')">
+      
+          </div>
+          <div style="background: url('https://images.unsplash.com/photo-1565432629946-62b4a2311557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHdpZGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60')">
+      
+          </div>
+          <div style="background: url('https://images.unsplash.com/photo-1547327195-59a16bed035e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHdpZGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60')">
+      
+          </div>
+          <div style="background: url('https://images.unsplash.com/photo-1500067737767-0276d2605978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fHdpZGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60')">
+      
+          </div>
+        </div>
+        <div class="action-buttons">
+          <button class="up-button">
+            <i class="fa-solid fa-arrow-up"></i>
+          </button>
+          <button class="down-button">
+            <i class="fa-solid fa-arrow-down"></i>
+          </button>
+        </div>
+      </div>
+</body>
+</html>
+<script>
+    // Get references to HTML elements
+const sliderContainer = document.querySelector(".slider-container");
+const slidesLeft = document.querySelector(".left-slide");
+const slidesRight = document.querySelector(".right-slide");
+const upButton = document.querySelector(".up-button");
+const downButton = document.querySelector(".down-button");
+
+// Calculate the total number of slides
+const slidesLength = slidesRight.querySelectorAll("div").length;
+
+// Initialize the active slide index
+let activeSlidesIndex = 0;
+
+// Set initial position for left slides
+slidesLeft.style.top = `-${(slidesLength - 1) * 100}vh`;
+
+// Add click event listeners to up and down buttons
+upButton.addEventListener("click", () => changeSlide("up"));
+downButton.addEventListener("click", () => changeSlide("down"));
+
+// Function to change the active slide
+const changeSlide = (direction) => {
+  const sliderHeight = sliderContainer.clientHeight;
+  if (direction === "up") {
+    activeSlidesIndex++;
+    if (activeSlidesIndex > slidesLength - 1) {
+      activeSlidesIndex = 0;
+    }
+  } else if (direction === "down") {
+    activeSlidesIndex--;
+    if (activeSlidesIndex < 0) {
+      activeSlidesIndex = slidesLength - 1;
+    }
+  }
+
+  // Update the transform property to change the slide position
+  slidesRight.style.transform = `translateY(-${
+    activeSlidesIndex * sliderHeight
+  }px)`;
+  slidesLeft.style.transform = `translateY(${
+    activeSlidesIndex * sliderHeight
+  }px)`;
+};
+
+</script>
