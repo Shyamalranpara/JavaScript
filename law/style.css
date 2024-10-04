@@ -1,0 +1,289 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.fst{
+    width: 100%;
+    height: 4vh;
+    margin: 0 auto;
+    background-color: #2e0000;
+    color: white;
+    font-size: smaller;
+}
+#img{
+    width: 10%;
+}
+#a1{
+    /* text-decoration: none; */
+    color: red;
+}
+nav{
+    height: 10vh;
+}
+.s1{
+    background: linear-gradient(#0000006a,#0000006a),url(https://preview.colorlib.com/theme/lawyerlegal/assets/img/hero/h1_hero1.jpg);
+    opacity: 1;
+    width: 100%;
+    /* height: 100vh; */
+    min-height: 100vh;
+    color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#sp{
+    font-family: "Baskervville", serif;
+    font-size: 6em;
+    font-weight: 400;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+/* btn start  */
+
+button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #B40000;;
+    /* font-family: "Baskervville", serif; */
+    box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+  }
+  
+  button:after {
+    content: " ";
+    width: 0%;
+    height: 100%;
+    background: orangered;
+    position: absolute;
+    transition: all 0.4s ease-in-out;
+    right: 0;
+  }
+  
+  button:hover::after {
+    right: auto;
+    left: 0;
+    width: 100%;
+  }
+  
+  button span {
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    padding: 18px 25px;
+    color: #fff;
+    font-size: 1.125em;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    z-index: 20;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button:hover span {
+    color: #183153;
+    animation: scaleUp 0.3s ease-in-out;
+  }
+  
+  @keyframes scaleUp {
+    0% {
+      transform: scale(1);
+    }
+  
+    50% {
+      transform: scale(0.95);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+/* btn end  */
+.s2{
+    /* height: 100vh; */
+
+}
+.date{
+    width: 32%;
+    height: 18vh;
+    color: #ffff;
+    background-color: #B40000;
+    position: absolute;
+    margin-top: 100%;
+    margin-inline: 60%;
+    line-height: 30px;
+}
+#fif{
+    font-weight: 900;
+    font-size: 65px;
+}
+.s3{
+    width: 100%;
+    height: 110vh;
+    background-color: whitesmoke;
+}
+.f{
+  width: 100%;
+  height: 30vh;
+  border: 1px solid;
+}
+#call{
+  width: 48%;
+  height: 32vh;
+  background-color: #fff;
+  /* border: 1px solid black; */
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#frm{
+  width: 33%;
+  height: 65.5vh;
+  color: #fff;
+  /* border: 1px solid black; */
+  border-radius: 0px 90px 0px 0px;
+-webkit-border-radius: 0px 90px 0px 0px;
+-moz-border-radius: 0px 90px 0px 0px;
+background-color: #B40000;
+}
+#inner{
+  width: 80%;
+  height: 5vh;  
+  border: 1px solid white;
+}
+#inn{
+  width: 100%;
+  height: 100%;
+  background-color: #B40000;
+  border: none;
+  color: white;
+}
+input:focus{
+  outline: none;
+}
+::placeholder{
+  color: #fff;
+  opacity: 0.8;
+}
+textarea:focus{
+  outline: none;
+}
+#inner11{
+  margin-left: 30px;
+  background-color: #B40000;
+}
+.bg-warning {
+  /* padding-left: 130px;
+  padding-right: 120px; */
+  font-size: 20px;
+  font-family:'Baskervville', serif ;
+  border-radius: 10%;
+  /* padding: 18px 110px 10px 110px; */
+}
+.s4{
+  width: 100%;
+  height: 65vh;
+  /* border: 1px solid black; */
+}
+.pro{
+  width: 70%;
+  margin: 0 auto;
+}
+.s5{
+  width: 100%;
+  height: 20vh; 
+  margin: 0 auto;
+}
+#sec5{
+  margin-left:30%;
+}
+.s6{
+  width: 100%;
+  height: 60vh;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url(https://preview.colorlib.com/theme/lawyerlegal/assets/img/gallery/section_bg1.jpg);
+}
+.text-end{
+  font-family: 'Baskervville', serif;
+  font-size: 4em;
+}
+.line .lines{
+  display: inline-block;
+  height: 2px;
+  width: 30px;
+  background-color: #e8a14a; /* Color of the orange line */
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.s7{
+  width: 100%;
+  height: 110vh;
+  border: 1px solid black;
+}
+#sem{
+  width: 40%;
+  height: 35vh;
+  /* border: 1px solid black; */
+  background-image: url(https://preview.colorlib.com/theme/lawyerlegal/assets/img/gallery/news1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-wrap: wrap;
+  border-radius: 0px 90px 0px 0px;
+-webkit-border-radius: 90px 0px 0px 0px;
+-moz-border-radius: 90px 0px 0px 0px;
+}
+.in{
+  width: 80%;
+  height: 25vh;
+  /* border: 1px solid black; */
+  background-color: #fff;
+  margin-top: 255px;
+  margin-left: 100px;
+  color: black;
+  padding: 20px;
+}
+.s8{
+  width: 100%;
+  height: 70vh;
+  background-color: #2e0000;
+}
+#foot{
+  color: #fff;
+  width: 60%;
+  margin: 0 auto;
+}
+#footin{
+  width: 90%;
+  height: 18vh;
+  margin: 0 auto;
+  background-color: #efe2e2;
+  color: black;
+}
+.div8 a{
+  margin-inline: 40px;
+  color: #fff;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+.div8 a:hover{
+  color: orangered;
+  transition: 0.5s;
+}
+#foot1{
+  width: 100%;
+  height: 10vh;
+  border-bottom:0.1px solid rgba(245, 245, 245, 0.153);
+  border-top:0.1px solid rgba(245, 245, 245, 0.153);
+}
+.sp{
+border-right: 1px solid whitesmoke;
+}
