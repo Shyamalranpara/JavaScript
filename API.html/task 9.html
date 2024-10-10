@@ -60,14 +60,11 @@ fetch('https://fakestoreapi.com/products')
         let price=document.createElement("price")
         price.innerText=el.price
 
-        let description=document.createElement("description")
-        description.innerText=el,description
-
         div2.id = "div2"
         let img = document.createElement("img")
         img.src=el.image
 
-        div2.append(img,p,price,description)
+        div2.append(img,p,price)
         div.append(div2)
     });
    }
