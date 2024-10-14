@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+      const students = [
+    { name: "John", marks: 75, subject: "Math", rollNumber: 12 }, 
+    { name: "Alice", marks: 45, subject: "Science", rollNumber: 18 },
+    { name: "Bob", marks: 62, subject: "English", rollNumber: 21 }, 
+    { name: "Charlie", marks: 55, subject: "History", rollNumber: 16 }, 
+    { name: "David", marks: 85, subject: "Math", rollNumber: 25 }
+];
+
+console.log(students)
+
+console.log("Uppercase all students' names");
+for (let i = 0; i < students.length; i++) {
+  
+        console.log(students[i].name.toUpperCase());
+    
+}
+console.log("students who scored more than 60")
+for(let i=0;i<students.length;i++){
+    if(students[i].marks>=60){
+        console.log(students[i].marks)
+    }
+}
+
+console.log("rollnumber greater than 15");
+
+for(let i=0;i<students.length;i++){
+    if(students[i].marks>=60 && students[i].rollNumber>=15){
+        console.log(students[i].marks&&students[i].rollNumber)
+    }
+}
+
+console.log("sum of all students marks");
+let sum=0
+for(let i=0;i<students.length;i++){
+   sum+=students[i].marks
+}
+console.log(sum)
+
+console.log("name of students who scored more than 60");
+for(let i=0;i<students.length;i++){
+    if(students[i].marks>=60){
+        console.log(students[i].name)
+    }
+}
+
+console.log("Add 20 to each students marks")
+for(let i=0;i<students.length;i++){
+   students[i].marks+=20
+   console.log(students[i].marks)
+}
+</script>
