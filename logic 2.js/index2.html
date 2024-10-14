@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 id="parent">name</h1>
+
+In JavaScript, you can append elements to a parent element using the append() or appendChild() methods.
+Using append()
+JavaScript
+
+// Get the parent element
+const parent = document.getElementById("parent");
+
+// Create a new element to append
+const newElement = document.createElement("p");
+newElement.textContent = "This is a new paragraph.";
+
+// Append the element to the parent
+parent.append(newElement);
+Using appendChild()
+JavaScript
+
+// Get the parent element
+const parent = document.getElementById("parent");
+
+// Create a new element to append
+const newElement = document.createElement("p");
+newElement.textContent = "This is a new paragraph.";
+
+// Append the element to the parent
+parent.appendChild(newElement);
+Difference between append() and appendChild()
+append()
+can append multiple nodes and strings as arguments, while appendChild() can only append one node object.
+append()
+inserts the nodes/strings after the last child of the parent, while appendChild() does the same but only accepts a single Node object.
+Example using append() to add multiple elements:
+JavaScript
+
+const parent = document.getElementById("parent");
+
+const newParagraph = document.createElement("p");
+newParagraph.textContent = "This is a new paragraph.";
+
+const newSpan = document.createElement("span");
+newSpan.textContent = " And this is a span element.";
+
+parent.append(newParagraph, newSpan);
+
+<script>
+// Get the parent element
+const parent = document.getElementById("parent");
+
+// Create a new element to append
+const newElement = document.createElement("p");
+newElement.textContent = "This is a new paragraph.";
+
+let name=document.createElement("p");
+name.textContent="this is the new element";
+// Append the element to the parent
+parent.append(newElement);
+parent.append(name);
+</script>
+
+</body>
+</html>

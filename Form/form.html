@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,20 +9,19 @@
     <center>
         <h1>Form Validation</h1>
 
-
-        <form action="" onsubmit=" return myform()">
-            <input type="Name" placeholder="Enter Your Name" id="name"><br><br>
+        <form action="./action.html" onsubmit=" return myform()">
+            <input type="text" placeholder="Enter Your Name" id="name"><br><br>
             <input type="number" placeholder="Enter Your Number" id="number"><br><br>
             <input type="email" placeholder="Enter your email" id="email"><br><br>
             <input type="date" id="date"><br><br>
             <input type="password" placeholder="Enter Your password" id="password"><br><br>
             <input type="password" placeholder="Enter Your confirm password" id="confirm"><br><br>
-            <input type="hobby" placeholder="Enter your Hobby"><br><br>
+            <input type="text" placeholder="Enter your Hobby"><br><br>
             <!-- <label for="">Gender</label> -->
            <label for="">Gender :</label>
-            <input type="radio" id="Male" name="Gender" value="Male"><label for="Gender">Male</label>
-            <input type="radio" id="Female" name="Gender" value="Female"><label for="Gender">Female</label>
-            <input type="radio" id="Other" name="Gender" value="Other"><label for="Gender">Other</label>
+            <input type="radio" id="Male" name="Gender" value="Male"><label for="Male">Male</label>
+            <input type="radio" id="Female" name="Gender" value="Female"><label for="Female">Female</label>
+            <input type="radio" id="Other" name="Gender" value="Other"><label for="Other">Other</label>
             <br><br>
            
             <input type="submit">
@@ -33,7 +31,7 @@
 </html>
 <script>
     function myform(){
-        let a= document.getElementById("Name").value
+        let a= document.getElementById("name").value
         let b= document.getElementById("number").value
         let c= document.getElementById("email").value
         let d= document.getElementById("date").value
@@ -41,76 +39,22 @@
         let f= document.getElementById("confirm").value
 
         if(a && b && c && d && e && f){
-            if(Number.length!=10){
-                alert("number should be of 10 digits")
-                return false
+            if(b.length!=10){
+                alert("number should be of 10 digits.")
+                return false;
             }
             if(e!==f){
-                alert("boat are note a same pass")
-                return false
+                alert("both passwords are note the same.")
+                return false;
             }
-            return true
+            return true;
         }
     else{
-        alert("please fill all det")
+        alert("please fill all details.")
+        return false;
     }
     }
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <center>
-        <h1>Form Validation</h1>
+        
 
-
-        <form action="" onsubmit=" return myform()">
-            <input type="Name" placeholder="Enter Your Name" id="name"><br><br>
-            <input type="number" placeholder="Enter Your Number" id="number"><br><br>
-            <input type="email" placeholder="Enter your email" id="email"><br><br>
-            <input type="date" id="date"><br><br>
-            <input type="password" placeholder="Enter Your password" id="password"><br><br>
-            <input type="password" placeholder="Enter Your confirm password" id="confirm"><br><br>
-            <input type="hobby" placeholder="Enter your Hobby"><br><br>
-            <!-- <label for="">Gender</label> -->
-           <label for="">Gender :</label>
-            <input type="radio" id="Male" name="Gender" value="Male"><label for="Gender">Male</label>
-            <input type="radio" id="Female" name="Gender" value="Female"><label for="Gender">Female</label>
-            <input type="radio" id="Other" name="Gender" value="Other"><label for="Gender">Other</label>
-            <br><br>
-           
-            <input type="submit">
-        </form>
-    </center>
-</body>
-</html>
-<script>
-    function myform(){
-        let a= document.getElementById("Name").value
-        let b= document.getElementById("number").value
-        let c= document.getElementById("email").value
-        let d= document.getElementById("date").value
-        let e= document.getElementById("password").value
-        let f= document.getElementById("confirm").value
-
-        if(a && b && c && d && e && f){
-            if(Number.length!=10){
-                alert("number should be of 10 digits")
-                return false
-            }
-            if(e!==f){
-                alert("boat are note a same pass")
-                return false
-            }
-            return true
-        }
-    else{
-        alert("please fill all det")
-    }
-    }
->>>>>>> 1cb554ce8033a4266dbeb62fdb6e59fa0eb2edb6
 </script>
+

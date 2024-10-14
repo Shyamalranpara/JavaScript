@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  
+            #name-list, #marks-list {
+            display: inline-block; /* Allow side-by-side layout */
+            width: 20%; /* Set width for both lists */
+            vertical-align: top; /* Align items to the top */
+            line-height: 200%;
+        }
+        h4 {
+            margin:0 auto; /* Adds vertical spacing between items */
+        } 
+</style>
+<body>
+    <p>JavaScript uses names to access object properties.</p>
+    
+    <div>
+        <div id="name-list"></div>
+
+        <div id="marks-list"></div>
+
+    </div>
+
+
+    <script>
+        const students = [
+            { name: "John", marks: 75, subject: "Math", rollNumber: 12 }, 
+            { name: "Alice", marks: 45, subject: "Science", rollNumber: 18 },
+            { name: "Bob", marks: 62, subject: "English", rollNumber: 21 }, 
+            { name: "Charlie", marks: 55, subject: "History", rollNumber: 16 }, 
+            { name: "David", marks: 85, subject: "Math", rollNumber: 25 }
+        ];  
+
+        let parent = document.getElementById("name-list");
+
+        for (let i = 0; i < students.length; i++) {
+            let studentItem = document.createElement("h4"); 
+            studentItem.innerHTML = students[i].name.toUpperCase(); // Set the text content to the student's name
+            parent.append(studentItem); // Append the paragraph to the parent div
+        }
+
+        let parent1 = document.getElementById("marks-list");
+
+        for(let i = 0; i < students.length; i++){
+            let markItem=document.createElement("h4");
+            markItem.innerHTML=students[i].marks;
+            parent1.append(markItem);
+        }
+      
+    </script>
+</body>
+</html>

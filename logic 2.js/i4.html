@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 50%; /* Adjust the width of the table */
+            border-collapse: collapse; /* Remove space between cells */
+            margin: 20px auto; /* Center the table */
+        }
+        th, td {
+            border: 1px solid #000; /* Add borders to the cells */
+            padding: 10px; /* Add some padding */
+            text-align: center; /* Center the text */
+        }
+        th {
+            background-color: #f2f2f2; /* Light grey background for header */
+        }
+    </style>
+</head>
+<body>
+    <p>JavaScript uses names to access object properties.</p>
+    
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Marks</th>
+                </tr>
+            </thead>
+            <tbody id="student-list"></tbody>
+        </table>
+    </div>
+
+    <script>
+        const students = [
+            { name: "John", marks: 75, subject: "Math", rollNumber: 12 }, 
+            { name: "Alice", marks: 45, subject: "Science", rollNumber: 18 },
+            { name: "Bob", marks: 62, subject: "English", rollNumber: 21 }, 
+            { name: "Charlie", marks: 55, subject: "History", rollNumber: 16 }, 
+            { name: "David", marks: 85, subject: "Math", rollNumber: 25 }
+        ];  
+
+        let studentList = document.getElementById("student-list");
+
+        // Append student names and marks to the table
+        students.forEach(student => {
+            let row = document.createElement("tr");
+            let nameCell = document.createElement("td");
+            let marksCell = document.createElement("td");
+
+            nameCell.innerHTML = student.name.toUpperCase(); // Convert name to uppercase
+            marksCell.innerHTML = student.marks;
+
+            row.appendChild(nameCell); // Append name cell to the row
+            row.appendChild(marksCell); // Append marks cell to the row
+            studentList.appendChild(row); // Append the row to the table body
+        });
+    </script>
+</body>
+</html>
