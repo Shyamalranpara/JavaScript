@@ -84,28 +84,52 @@ function displaydata(data){
         let img = document.createElement("img")
         img.src=el.image
 
-        let editButton = document.createElement("button");
-                editButton.innerText = "Edit";
+        let btn = document.createElement("button");
+                btn.innerText = "Edit";
+               
+               btn.addEventListener("click",()=>{
+                editprice (el,i)
+               })
+
                
 
-                
-                let deleteButton = document.createElement("button");
-                deleteButton.className = "delete-button";    
-                deleteButton.innerText = "Delete";
+                let btn1 = document.createElement("button");
+btn1.innerText = "Delete";
+
+btn1.addEventListener("click", () => {
+    deletediv(i); // Pass the index directly
+});
+                // let deleteButton = document.createElement("button");
+                // deleteButton.className = "delete-button";    
+                // deleteButton.innerText = "Delete";
                 
 
                 
-                let buttonsContainer = document.createElement("div");
-                buttonsContainer.className = "buttons";
+                // let buttonsContainer = document.createElement("div");
+                // buttonsContainer.className = "buttons";
                 
         
-        div2.append(img,p,price,buttonsContainer )
+        div2.append(img,p,price,btn,btn1)
         div.append(div2)
-        buttonsContainer.append(editButton, deleteButton);
+        // buttonsContainer.append(editButton, deleteButton);
 
     });
 
 }
 
+function editprice(el,i){
+  let x=prompt("edit the price for this product",el.price)
+  console.log(x)
 
+  let price=document.getElementById('price-${i}')
+  price.innerHTML=x
+}
+
+function Delete(index) {
+    let y = prompt("Do you really want to delete this div? Type 'yes' to confirm.");
+    if (y === 'yes') {
+        let div2 = document.getElementById(`div2-${index}`); // Use backticks for template literal
+        div2?.remove(); // Use optional chaining to safely call remove
+    }
+}
 </script>

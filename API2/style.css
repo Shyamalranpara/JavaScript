@@ -44,16 +44,17 @@ button {
     cursor: pointer;
     border-radius: 5px;
     font-size: 14px;
+    /* width: 100%; */
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-.delete-button {
+/* .delete-button {
     background-color: #dc3545;
 }
 
 .delete-button:hover {
     background-color: #c82333;
-}
+} */
