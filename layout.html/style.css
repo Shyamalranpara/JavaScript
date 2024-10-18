@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 .s1{
     width: 100%;
@@ -29,3 +30,11 @@
     padding: 15px 30px 15px 30px;
     border-radius: 4%;
 }
+=======
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+>>>>>>> 52053abc384995771224c54d39d29b1441e9d858
