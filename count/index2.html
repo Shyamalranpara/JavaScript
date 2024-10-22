@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript Counter</title>
+</head>
+<body>
+
+<button onclick="startCounter()">Start</button>
+<button onclick="stopCounter()">Stop</button>
+<p id="counter">0</p>
+
+<script>
+let count = 0;
+let intervalId;
+
+function startCounter() {
+  intervalId = setInterval(() => {
+    count++;
+    document.getElementById("counter").textContent = count;
+  }, 1000); // Update every 1 second
+}
+
+function stopCounter() {
+  clearInterval(intervalId);
+}
+</script>
+
+</body>
+</html>

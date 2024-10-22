@@ -30,6 +30,25 @@
         color: #66575b;
         font-size: 17px;
        }
+       #div2{
+        width: 50%;
+        height: 80px;
+        margin: 0 auto;
+        margin-top: 20px;
+        /* border: 1px solid black; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       }
+       #Startbtn{
+        
+       }
+       #Stopbtn{
+        
+    }
+    #Resetbtn{
+        
+    }
     </style>
 </head>
 <body>
@@ -53,18 +72,47 @@
             </div>
         </div>
         
+        <div id="div2">
+
+        </div>
         <footer>
             <p style="text-align: center;color: cornflowerblue;" id="p">our the counter</p>
         </footer>
-
-       
    
 </body>
 </html>
 <script>
-    let count = document.getElementById("count");
+    let countElement = document.getElementById("count");
     let time = 0;
+    let timer=false;
+    let count=0;
 
+    function start() {
+    timer = true;
+    myfun(); // Call myfun() to start the count
+}
+    function stop(){
+        timer=false
+        myfun();
+    }
+
+    function Reset(){
+        location.reload();
+    }
+function myfun() {
+    if (timer === true) {
+        count += 1; // Increment count
+        countElement.innerHTML = `Timer: ${count}`; // Update the count display
+
+        if (count >= 100) {
+            timer = false; // Stop the timer if count reaches 100
+            countElement.innerHTML = "Count reached 100!";
+            return;
+        }
+
+        setTimeout(myfun, 100); // Call myfun() again after 100 ms
+    }
+}
     let interval = setInterval(() => {
         count.innerHTML = `timer : ${time}`;
         time++;  
@@ -72,53 +120,68 @@
         if (time > 20 ) {
             clearInterval(interval);
             count.innerHTML = "Time's up!";
+            timer=false;
         }
-        let btn=document.createElement("button")
-        btn.innerHTML="stop"
-        count.append(btn)
-        
-        let btn1=document.createElement("button")
-        btn1.innerHTML="start"
-        count.append(btn1)
-  
-       
+
     }, 600);
 
-   
-
-    let count1 = document.getElementById("count1");
+    let countElement1 = document.getElementById("count1");
     let time1 =  20;
+    let timer1=false;
+    let count1=0;
 
-    let interval1=setInterval(()=>{
-        count1.innerHTML=`timer : ${time1}`;
-        time1--;
+    function start() {
+    timer1 = true;
+    myfun(); // Call myfun() to start the count
+}
+    function stop(){
+        timer1=false
+        myfun();
+    }
 
-        if(time1<0){
+    function Reset(){
+        location.reload();
+    }
+    function myfun() {
+    if (timer1 === true) {
+        count1 += 1; // Increment count
+        countElement1.innerHTML = `Timer: ${count1}`; // Update the count display
+
+        if (count1 >= 100) {
+            timer1 = false; // Stop the timer if count reaches 100
+            countElement1.innerHTML = "Count reached 100!";
+            return;
+        }
+
+        setTimeout(myfun, 100); // Call myfun() again after 100 ms
+    }
+}
+    let interval1 = setInterval(() => {
+        count.innerHTML = `timer : ${time1}`;
+        time1++;  
+
+        if (time1 > 20 ) {
             clearInterval(interval1);
             count.innerHTML = "Time's up!";
+            timer1=false;
         }
-        let btn=document.createElement("button")
-        btn.innerHTML="click"
-        count1.append(btn)
-  
 
-    },400);
+    }, 400);
+
+    
 
     
     let count2 = document.getElementById("count2");
     let time2 =  30;
 
     let interval2=setInterval(()=>{
-        count2.innerHTML=`timer : ${time2}`;
+        count2.innerHTML=`Timer : ${time2}`;
         time2--;
 
         if(time2<0){
             clearInterval(interval2);
             count.innerHTML = "Time's up!";
         }
-        let btn=document.createElement("button")
-        btn.innerHTML="click"
-        count2.append(btn)
   
     },200);
     
@@ -128,17 +191,14 @@
     let time3 =  40;
 
     let interval3=setInterval(()=>{
-        count3.innerHTML=`timer : ${time3}`;
+        count3.innerHTML=`Timer : ${time3}`;
         time3--;
 
         if(time3<0){
             clearInterval(interval3);
             count.innerHTML = "Time's up!";
         }
-        let btn=document.createElement("button")
-        btn.innerHTML="click"
-        count3.append(btn)
-  
+    
     },100);
 
      
@@ -146,18 +206,39 @@
     let time4 =  50;
 
     let interval4=setInterval(()=>{
-        count4.innerHTML=`timer : ${time4}`;
+        count4.innerHTML=`Timer : ${time4}`;
         time4--;
 
         if(time4<0){
             clearInterval(interval4);
             count.innerHTML = "Time's up!";
         }
-        let btn=document.createElement("button")
-        btn.innerHTML="click"
-        count4.append(btn)
-  
+       
     },80);
+
+    
+    let divbtn=document.getElementById("div2")    
+    let btn=document.createElement("button")
+    btn.innerHTML="Start"
+    btn.id="Startbtn"
+    btn.onclick = start; // Call the correct function on click
+    divbtn.append(btn); 
+
+    let divbtn2=document.getElementById("div2")    
+    let btn1=document.createElement("button")
+    btn1.innerHTML="Stop"
+    btn1.id="Stopbtn"
+    btn1.onclick=stop;
+    divbtn2.append(btn);
+
+    let divbtn3=document.getElementById("div2")    
+    let btn2=document.createElement("button")
+    btn2.innerHTML="Reset"
+    btn2.id="Resetbtn"
+    btn2.onclick=Reset;
+    divbtn3.append(btn);
+
+    divbtn.append(btn,btn1,btn2)
 
     setTimeout(()=>{
         h.innerHTML="COUNTDOWN"

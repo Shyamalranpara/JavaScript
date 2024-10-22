@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="count">Timer: 0</div>
+<div id="div2"></div>
+
+</body>
+</html>
+<script>
+    let countElement = document.getElementById("count");
+let time = 0;
+let timer = false;
+let count = 0;
+
+function start() {
+    timer = true;
+    myfun(); // Call myfun() to start the count
+}
+
+function myfun() {
+    if (timer === true) {
+        count += 1; // Increment count
+        countElement.innerHTML = `Count: ${count}`; // Update the count display
+
+        if (count >= 100) {
+            timer = false; // Stop the timer if count reaches 100
+            countElement.innerHTML = "Count reached 100!";
+            return;
+        }
+
+        setTimeout(myfun, 100); // Call myfun() again after 100 ms
+    }
+}
+
+let interval = setInterval(() => {
+    countElement.innerHTML = `Timer: ${time}`;
+    time++;  
+
+    if (time > 20) {
+        clearInterval(interval);
+        countElement.innerHTML = "Time's up!";
+        timer = false; // Stop the counting
+    }
+}, 600);
+
+let divbtn = document.getElementById("div2");
+let btn = document.createElement("button");
+btn.innerHTML = "Start";
+btn.id = "Startbtn";
+btn.onclick = start; // Call the correct function on click
+divbtn.appendChild(btn); // Append the button to the div
+
+</script>
