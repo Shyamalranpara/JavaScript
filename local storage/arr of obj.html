@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // Array of objects representing users
+const users = [
+    { name: "Alice", age: 30 },
+    { name: "Bob", age: 25 },
+    { name: "Charlie", age: 35 }
+];
+console.log(users )
+// Function to display user information
+function displayUsers(users) {
+    users.forEach(user => {
+        console.log(`Name: ${user.name}, Age: ${user.age}`);
+    });
+}
+
+// Call the function to display users
+displayUsers(users);
+
+// Adding a new user to the array
+users.push({ name: "Diana", age: 28 });
+
+// Display updated users
+console.log("Updated user list:");
+displayUsers(users);
+
+</script>

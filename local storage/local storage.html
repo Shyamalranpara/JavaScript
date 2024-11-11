@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Local Storage</h1>
+
+        <input type="text" id="username" placeholder="Enter your name">
+        
+        <button onclick="store()">Click</button>
+
+        <h2 id="displaydata"></h2>
+    </center>
+</body>
+</html>
+<script>
+    function store() {
+        let name = document.getElementById("username").value;
+        if (name) {
+            // Retrieve existing data from localStorage
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Create a new user object
+            let newUser = { name: name };
+
+            // Add the new user to the array
+            users.push(newUser);
+
+            // Store the updated array back to localStorage
+            localStorage.setItem("users", JSON.stringify(users));
+
+            displaydata();
+            document.getElementById("username").value = ""; // Clear input field
+        }
+    }
+
+    function displaydata() {
+        let h2 = document.getElementById("displaydata");
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        if (users.length === 0) {
+            h2.innerText = "No data yet";
+        } else {
+            h2.innerText = users.map(user => user.name).join(', ');
+        }
+    }
+
+    displaydata();
+</script>

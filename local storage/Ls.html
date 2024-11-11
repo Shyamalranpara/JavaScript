@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Example</title>
+    <style>
+        .user-item {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Local Storage</h1>
+
+        <input type="text" id="username" placeholder="Enter username">
+        <button onclick="addUser()">Add User</button>
+        <h2 id="displaydata"></h2>
+    </center>
+</body>
+</html>
+
+<script>
+    function addUser() {
+        let name = document.getElementById("username").value;
+        if (name) {
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            users.push({ id: Date.now(), name: name });
+            localStorage.setItem("users", JSON.stringify(users));
+            document.getElementById("username").value = ""; // Clear input
+            displayData();
+        }
+    }
+
+    function displayData() {
+        let h2 = document.getElementById("displaydata");
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        h2.innerHTML = ""; // Clear previous data
+
+        if (users.length === 0) {
+            h2.innerText = "No data yet";
+        } else {    
+            users.forEach(user => {
+                let userItem = document.createElement("div");
+                userItem.classList.add("user-item");
+                userItem.innerHTML = `
+                    ${user.name}
+                    <button onclick="editUser(${user.id})">Edit</button>
+                    <button onclick="deleteUser(${user.id})">Delete</button>
+                `;
+                h2.appendChild(userItem);
+            });
+        }
+    }
+
+    function editUser(id) {
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        let user = users.find(u => u.id === id);
+        if (user) {
+            let newName = prompt("Edit username:", user.name);
+            if (newName) {
+                user.name = newName;
+                localStorage.setItem("users", JSON.stringify(users));
+                displayData();
+            }
+        }
+    }
+
+    function deleteUser(id) {
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        users = users.filter(u => u.id !== id);
+        localStorage.setItem("users", JSON.stringify(users));
+        displayData();
+    }
+
+    displayData();
+</script>
