@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Products</title>
+    <style>
+        body{
+            background-color: #f0ece2;
+        }
+        h1{
+            text-align: center;
+            font-size: 55px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #display {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .product-card {
+            width: 200px;
+            border: 1px solid black;
+            border-radius: 20px;
+            padding: 10px;
+            text-align: center;
+        }
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            margin-top: 20px;
+            object-fit: cover;
+        }
+        input{
+            text-align: center;
+            margin-bottom: 10px;
+            border: none;
+            display: none;
+        }
+        .edit-button{
+            padding: 8px 8px 8px 8px;
+            font-size: 14px;
+            color: white;
+            background-color:#113f67;
+            border: none;
+        }
+        .edit-button:hover{
+            background-color: #fdc57b;
+            color: black;
+            transition: 0.3s ease-in-out;
+        }
+        .delete-button:hover{
+            background-color: #fdc57b;
+            color: black;
+            transition: 0.3s ease-in-out;
+        }
+        .delete-button{
+            padding: 8px 8px 8px 8px;
+            font-size: 14px;
+            background-color: #66bfbf;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cart Products</h1>
+
+    <div id="display"></div>
+
+   
+</body>
+</html>
+<script>
+
+    let products = JSON.parse(localStorage.getItem('products'));
+        if (products) {
+            displayData(products);  
+        }
+    
+        else{
+            fetch('https://dummyjson.com/carts')
+        .then((res) => res.json())
+        .then((data) => {
+            let Products = [];
+            data.carts.forEach(cart => {
+                Products.push(...cart.products); 
+            });
+    
+            localStorage.setItem('products', JSON.stringify(Products));
+    
+            displayData(Products); 
+        })
+        .catch(err => console.error("Error fetching data:", err));
+    
+        }
+         
+    function displayData(products) {
+        let displayDiv = document.getElementById("display");
+        displayDiv.innerHTML = ''; 
+    
+        products.forEach((product, i) => {
+    
+            let productCard = document.createElement("div");
+            productCard.className = "product-card";
+    
+            const img = document.createElement("img");
+            img.src = product.thumbnail;
+            img.alt = product.title;
+    
+            const title = document.createElement("h3");
+            title.innerText = product.title;
+    
+            const price = document.createElement("p");
+            price.innerText = "Price: $" + product.price;
+    
+            // Create buttons
+            let editButton = document.createElement("button");
+            editButton.classList.add('button', 'edit-button');
+            editButton.innerText = "Edit Price";
+            editButton.onclick = () => editPrice(i, product.price);
+    
+            let deleteButton = document.createElement("button");
+            deleteButton.classList.add('button', 'delete-button');
+            deleteButton.innerText = "Delete";
+            deleteButton.onclick = () => deleteProduct(i);
+    
+            let inputPrice = document.createElement("input");
+            inputPrice.type = "number";
+            inputPrice.value = product.price;
+            inputPrice.classList.add("hidden");
+    
+            productCard.append(img, title, price, inputPrice, editButton, deleteButton);
+            displayDiv.append(productCard);
+        });
+    }
+    
+    function editPrice(index, currentPrice) {
+        let newPrice = prompt("Enter the new price", currentPrice);
+        if (newPrice !== null) {
+    
+            let products = JSON.parse(localStorage.getItem('products'));
+            products[index].price = parseFloat(newPrice);
+    
+            localStorage.setItem('products', JSON.stringify(products));
+    
+            displayData(products);
+        }
+    }
+    
+    function deleteProduct(index) {
+        let products = JSON.parse(localStorage.getItem('products'));
+    
+        products.splice(index, 1);
+    
+        localStorage.setItem('products', JSON.stringify(products));
+    
+        displayData(products);
+    }
+    
+    
+    
+        </script>
