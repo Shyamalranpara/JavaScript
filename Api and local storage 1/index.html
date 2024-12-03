@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #display {
+        width: 80%;
+        height: 140vh;
+        margin: 0 auto;
+        margin-top: 30px;
+        background-color: rgba(127, 255, 212, 0.358);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    #div2 {
+        height: 25vh;
+        margin-top: 50px;
+        margin: 0 auto;
+        padding: 10px;
+        position: relative;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+        width: 90%;
+        height: 60%;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    p {
+        width: 100%;
+        height: 5vh;
+        padding: 10px;
+    }
+
+    .button {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-right: 5px;
+    }
+
+    .delete-button {
+        background-color: #f44336;
+    }
+
+    .edit-button {
+        background-color: #4CAF50;
+    }
+
+    input {
+        margin-top: 5px;
+        padding: 5px;
+        width: 80%;
+        border-radius: 5px;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+<body>
+    <center>
+        <h1>API And LocalStorage</h1>
+        <div id="display">
+        </div>
+    </center>
+  
+</body>
+</html>
+<script>
+    const storedData = localStorage.getItem('productData');
+
+    if (storedData) {
+        displaydata(JSON.parse(storedData));
+    } else {
+        fetch('https://fakestoreapi.com/products')
+        .then(function(res) {
+            return res.json();
+        })
+        .then(function(res) {
+            console.log(res);
+            localStorage.setItem('productData', JSON.stringify(res));
+            displaydata(res);
+        })
+        .catch((err) => console.log(err));
+    }
+
+    function displaydata(data) {
+        let div = document.getElementById("display");
+        div.innerHTML = ''; // Clear any existing content
+
+        data.forEach((el, i) => {
+            let div2 = document.createElement("div");
+            let p = document.createElement("p");
+            p.innerText = el.category;
+
+            let price = document.createElement("p");
+            price.innerText = "$" + el.price;
+
+            div2.id = "div2";
+
+            let img = document.createElement("img");
+            img.src = el.image;
+
+            // Create buttons
+            let editButton = document.createElement("button");
+            editButton.classList.add('button', 'edit-button');
+            editButton.innerText = "Edit Price";
+            editButton.onclick = () => editPrice(i, el.price);
+
+            let deleteButton = document.createElement("button");
+            deleteButton.classList.add('button', 'delete-button');
+            deleteButton.innerText = "Delete";
+            deleteButton.onclick = () => deleteProduct(i);
+
+            // Price input for editing
+            let inputPrice = document.createElement("input");
+            inputPrice.type = "number";
+            inputPrice.value = el.price;
+            inputPrice.classList.add("hidden");
+            
+            div2.append(img, p, price, inputPrice, editButton, deleteButton);
+            div.append(div2);
+        });
+    }
+
+    function editPrice(index, currentPrice) {
+        let div2 = document.getElementsByTagName("div")[index];
+        let inputPrice = div2.querySelector("input");
+        let price = div2.querySelectorAll("p")[1];
+
+        // Toggle visibility of input and price text
+        if (inputPrice.classList.contains("hidden")) {
+            inputPrice.classList.remove("hidden");
+            price.classList.add("hidden");
+        } else {
+            let newPrice = parseFloat(inputPrice.value);
+            if (newPrice !== currentPrice) {
+                let productData = JSON.parse(localStorage.getItem('productData'));
+                productData[index].price = newPrice;
+                localStorage.setItem('productData', JSON.stringify(productData));
+                price.innerText = "$" + newPrice.toFixed(2);
+                inputPrice.classList.add("hidden");
+                price.classList.remove("hidden");
+            }
+        }
+    }
+
+    function deleteProduct(index) {
+        let productData = JSON.parse(localStorage.getItem('productData'));
+        productData.splice(index, 1); // Remove product from array
+        localStorage.setItem('productData', JSON.stringify(productData)); // Save updated data
+        document.getElementById("display").innerHTML = ''; // Clear current display
+        displaydata(productData); // Re-render updated products
+    }
+</script>
