@@ -6,7 +6,7 @@
     <title>Cart Products</title>
     <style>
         body{
-            background-color: #f0ece2;
+            background: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
         }
         h1{
             text-align: center;
@@ -22,7 +22,8 @@
         }
         .product-card {
             width: 200px;
-            border: 1px solid black;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            /* border: 1px solid black; */
             border-radius: 20px;
             padding: 10px;
             text-align: center;
@@ -76,7 +77,7 @@
 <script>
 
     let products = JSON.parse(localStorage.getItem('products'));
-        if (products) {
+        if (!products) {
             displayData(products);  
         }
     
@@ -136,7 +137,7 @@
             displayDiv.append(productCard);
         });
     }
-    
+
     function editPrice(index, currentPrice) {
         let newPrice = prompt("Enter the new price", currentPrice);
         if (newPrice !== null) {
@@ -158,8 +159,5 @@
         localStorage.setItem('products', JSON.stringify(products));
     
         displayData(products);
-    }
-    
-    
-    
+    }    
         </script>
